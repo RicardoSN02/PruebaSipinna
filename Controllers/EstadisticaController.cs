@@ -20,6 +20,33 @@ namespace pruebaSippina.Controllers
             _context = context;
         }
 
+        // GET: api/EstadisticaDatos
+        [HttpGet]
+        [Route("datos")]
+        public async Task<ActionResult<IEnumerable<EstadisticaResultado>>> GetestadisticasDatos()
+        {
+             var consulta = from estadistica in _context.estadistica
+                   join categoria in _context.categoria on estadistica.categoria equals categoria.idCategoria
+                   join lugar in _context.lugar on estadistica.lugar equals lugar.idLugar
+                   join edades in _context.edades on estadistica.edades equals edades.idedades
+                   join fecha in _context.fecha on estadistica.fecha equals fecha.idfecha
+                   join cobertura in _context.cobertura on estadistica.cobertura equals cobertura.idCobertura
+                   select new EstadisticaResultado
+                   {
+                       Dominio = categoria.dominio,
+                       Categoria = categoria.categoria,
+                       Indicador = categoria.indicador,
+                       Poblacion = cobertura.poblacion,
+                       RangoEdades = edades.rangoEdades,
+                       Entidad = lugar.entidad,
+                       Anio = fecha.anio,
+                       Dato = estadistica.dato
+                   };
+
+            List<EstadisticaResultado> resultados = await consulta.ToListAsync();       
+
+            return resultados;
+        } 
 
         // GET: api/Estadistica
         [HttpGet]

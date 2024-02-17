@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pruebaSippina")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6be874bbb2c4651572a9067b6cb7e2ae23cdbcc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("pruebaSippina")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pruebaSippina")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
